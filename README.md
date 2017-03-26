@@ -9,3 +9,7 @@ Sample application using jms.
     * [introduciotn to CQRS](https://www.codeproject.com/Articles/555855/Introduction-to-CQRS)
     * [cqrs simple](https://www.future-processing.pl/blog/cqrs-simple-architecture/)
     * [ibm tutorial](https://www.ibm.com/developerworks/cloud/library/cl-build-app-using-microservices-and-cqrs-trs/)
+    * [benwillckock cqrs](https://benwilcock.wordpress.com/2016/06/20/microservices-with-spring-boot-axon-cqrses-and-docker/)
+    * [pillo cqrs](https://github.com/pilloPl)
+    * [balesdung spring-event-sourcing-and-cqrs](https://github.com/Baeldung/spring-event-sourcing-and-cqrs)
+    * [baledung  cqrs-for-a-spring-rest-api](http://www.baeldung.com/cqrs-for-a-spring-rest-api)
