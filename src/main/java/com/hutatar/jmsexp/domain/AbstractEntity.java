@@ -1,28 +1,34 @@
 package com.hutatar.jmsexp.domain;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
-import static javax.persistence.GenerationType.SEQUENCE;
 
 @MappedSuperclass
 @Getter
 public abstract class AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "ids_sequence")
-    @SequenceGenerator(name = "ids_sequence", schema = "orders")
+    @GenericGenerator(
+            name = "idSequenceGenerator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @Parameter(name = "sequence_name", value = "ids_sequence"),
+                    @Parameter(name = "schema", value = "orders"),
+                    @Parameter(name = "initial_value", value = "1"),
+                    @Parameter(name = "increment_size", value = "1")
+            }
+    )
+    @GeneratedValue(generator = "idSequenceGenerator")
     private BigInteger id;
     @Version
     private Integer version;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDateTime createdDate;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDateTime modificationDate;
 
     public AbstractEntity(){}

@@ -1,5 +1,5 @@
 create table orders.orders (
-        id decimal(19,2) not null,
+        id decimal(19,0) not null,
         created_date timestamp,
         modification_date timestamp,
         version integer,

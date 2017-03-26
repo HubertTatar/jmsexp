@@ -1,6 +1,7 @@
 package com.hutatar.jmsexp.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name="orders", schema = "orders", indexes = { @Index(name="orders_idx_1", columnList = "productName" ) } )
+@Getter
 public class Order extends AbstractEntity implements Serializable {
 
     private String productName;

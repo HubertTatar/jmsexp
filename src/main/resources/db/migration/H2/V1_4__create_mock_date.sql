@@ -1,2 +1,0 @@
--- insert into orders.orders(id, version, created_date, modification_date, product_name, quantity, status)
--- values(ids_sequence.nextval, 1, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), 'Test product name', 100, 'PENDING');

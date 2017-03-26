@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -31,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
     public void sendOrder(OrderDto orderDto) {
         Order order = dtoToDomain(orderDto);
         LOG.info("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        orderDto.setStatus(OrderStatus.CREATED);
+        order.setStatus(OrderStatus.PENDING);
         orderRepository.save(order);
         LOG.info("Application : sending order request {}", order);
         messageSender.sendMessage(order);
@@ -53,8 +55,30 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+    public OrderDto findOrder(BigInteger id) {
+        return domainToDto(orderRepository.getOne(id));
+    }
+
+    @Override
+    public List<OrderDto> getAllOrders() {
+        return dtoFromList(orderRepository.findAll());
+    }
+
+    private List<OrderDto> dtoFromList(List<Order> orders) {
+        return orders.stream().map(o -> {
+            return domainToDto(o);
+        }).collect(Collectors.toList());
+    }
+
+    private OrderDto domainToDto(Order o) {
+        return OrderDto.builder()
+                .id(o.getId())
+                .createdDate(o.getCreatedDate())
+                .modificationDate(o.getModificationDate())
+                .productName(o.getProductName())
+                .quantity(o.getQuantity())
+                .status(o.getStatus())
+                .build();
     }
 
     private Order dtoToDomain(OrderDto orderDto, Order order) {
