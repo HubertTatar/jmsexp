@@ -5,13 +5,15 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 
 @MappedSuperclass
 @Getter
-public abstract class AbstractEntity {
+@Table(indexes = {@Index(columnList = "id, version", unique = true)})
+public abstract class AbstractEntity implements Serializable {
 
     @Id
     @GenericGenerator(

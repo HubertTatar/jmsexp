@@ -7,15 +7,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="orders", schema = "orders", indexes = { @Index(name="orders_idx_1", columnList = "productName" ) } )
 @Getter
-public class Order extends AbstractEntity implements Serializable {
+public class Order extends AbstractEntity {
 
     private String productName;
     private int quantity;
     private OrderStatus status;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "order"
+    )
+    Set<OrderComment> comments = new HashSet<>();
 
     public Order() {}
 
@@ -50,4 +59,13 @@ public class Order extends AbstractEntity implements Serializable {
         this.quantity = quantity;
     }
 
+    public void addComment(OrderComment comment){
+        comments.add(comment);
+        comment.setOrder(this);
+    }
+
+    public void removeComment(OrderComment comment){
+        comments.add(comment);
+        comment.setOrder(null);
+    }
 }

@@ -1,5 +1,6 @@
 package com.hutatar.jmsexp.service;
 
+import com.hutatar.jmsexp.domain.OrderComment;
 import com.hutatar.jmsexp.dto.OrderDto;
 import com.hutatar.jmsexp.messaging.InventoryResponse;
 import com.hutatar.jmsexp.messaging.MessageSender;
@@ -11,11 +12,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private static final Logger LOG = LoggerFactory.getLogger(OrderServiceImpl.class);
@@ -32,6 +35,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void sendOrder(OrderDto orderDto) {
         Order order = dtoToDomain(orderDto);
+        OrderComment oc = new OrderComment("tst");
+        order.addComment(oc);
         LOG.info("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
         order.setStatus(OrderStatus.PENDING);
         orderRepository.save(order);

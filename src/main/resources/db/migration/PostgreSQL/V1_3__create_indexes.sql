@@ -1,0 +1,1 @@
+create index orders_idx_1 on orders.orders (product_name);

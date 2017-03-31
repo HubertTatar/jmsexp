@@ -1,10 +1,10 @@
 #spring.profiles.active: @spring.profiles.active@
 spring:
-  profiles.active: development
+  profiles.active: development-postgre
 
 ---
 spring:
-  profiles: development
+  profiles: development-h2
   h2:
     location: ./target/jmsexp
     console:
@@ -24,7 +24,35 @@ spring:
         format_sql: true
         implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
     show-sql: true
-
+flyway:
+  locations: classpath:/db/migration/H2
+    user: sa
+    password:
+---
+spring:
+  profiles: development-postgre
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/OrderApp
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        use-new-id-generator-mappings: true
+        format_sql: true
+        implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+    show-sql: true
+flyway:
+  locations: classpath:/db/migration/PostgreSQL
+  flyway:
+      user: postgres
+      password: postgres
+---
 brokerUrl: tcp://localhost:61616
 orderQueue: order-queue
 
@@ -32,6 +60,5 @@ logging:
   file: ./target/jmsexp.log
   level: debug
 
-flyway:
-  user: sa
-  password:
+
+
