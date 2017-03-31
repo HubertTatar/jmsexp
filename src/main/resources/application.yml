@@ -26,8 +26,8 @@ spring:
     show-sql: true
 flyway:
   locations: classpath:/db/migration/H2
-    user: sa
-    password:
+  user: sa
+  password:
 ---
 spring:
   profiles: development-postgre
@@ -49,9 +49,8 @@ spring:
     show-sql: true
 flyway:
   locations: classpath:/db/migration/PostgreSQL
-  flyway:
-      user: postgres
-      password: postgres
+  user: postgres
+  password: postgres
 ---
 brokerUrl: tcp://localhost:61616
 orderQueue: order-queue

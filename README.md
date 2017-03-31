@@ -1,4 +1,11 @@
-Sample application using jms.
+Experiments with technologies
+
+* Stuff:
+    * spring boot
+    * flyway
+    * jms
+    
+
 
 * Materials:
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
