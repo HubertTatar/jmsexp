@@ -10,6 +10,9 @@ Experiments with technologies
 mvn clean install
 cd backend
 mvn spring-boot:run
+
+cd frontend
+ng serve
 ````
 
 * Materials:
