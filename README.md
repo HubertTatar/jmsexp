@@ -5,9 +5,15 @@ Experiments with technologies
     * flyway
     * jms
     
-
+* Run
+````
+mvn clean install
+cd backend
+mvn spring-boot:run
+````
 
 * Materials:
+    * [javaslang](http://www.javaslang.io/javaslang-docs/)
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
     * [websystique jms tutorial](http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/)
     * [github guid for markup](https://guides.github.com/features/mastering-markdown/)
