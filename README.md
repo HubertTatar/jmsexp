@@ -17,7 +17,7 @@ ng serve
 * Docs
     * [webpack](https://webpack.github.io/docs/webpack-dev-server.html#proxy) 
     * [javaslang](http://www.javaslang.io/javaslang-docs/)
-    * [github guid for markup](https://guides.github.com/features/mastering-markdown/)
+    * [github guide for markup](https://guides.github.com/features/mastering-markdown/)
 
 * Materials:
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
