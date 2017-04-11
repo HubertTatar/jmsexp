@@ -3,6 +3,7 @@ import { BrowserModule }          from '@angular/platform-browser';
 import { NgModule }               from '@angular/core';
 import { AppRoutingModule }       from './app-routing.module';
 import { BugModule }              from './bugs/bug.module';
+import { CoreModule }             from './core/core.module';
 
 //Component
 import { AppComponent }           from './app.component';
@@ -17,7 +18,8 @@ import { NavbarComponent }        from './navbar/navbar.component';
   imports: [
     BrowserModule,
     BugModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
