@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+h1 {
+  color: #34434B;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-success {
+  background-color: #a09474;
+  border-color: #a09474;
+}
+
+.btn-success:hover,
+.btn-success:disabled {
+  background-color: #ACA286;
+  border-color: #ACA286;
+}

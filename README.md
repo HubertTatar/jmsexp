@@ -1,9 +1,4 @@
-Experiments with technologies
-
-* Stuff:
-    * spring boot
-    * flyway
-    * jms
+Experiments
     
 * Run
 ````
@@ -18,7 +13,8 @@ ng serve
     * [webpack](https://webpack.github.io/docs/webpack-dev-server.html#proxy) 
     * [javaslang](http://www.javaslang.io/javaslang-docs/)
     * [github guide for markup](https://guides.github.com/features/mastering-markdown/)
-
+    * [bootsrap4 alpha6](https://v4-alpha.getbootstrap.com/components)
+    * [fontawsome icons](http://fontawesome.io/icons/)
 * Materials:
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
     * [websystique jms tutorial](http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/)
