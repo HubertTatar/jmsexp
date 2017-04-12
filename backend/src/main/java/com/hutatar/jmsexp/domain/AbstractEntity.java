@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
-@Table(indexes = {@Index(columnList = "id, version", unique = true)})
+@Table(indexes = {})
 public abstract class AbstractEntity implements Serializable {
 
     @Id

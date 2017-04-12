@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order_comments", schema = "orders")
+@Table(name = "order_comments", schema = "orders", indexes = {@Index(columnList = "id, version", unique = true, name="order_comments_idx_1")})
 public class OrderComment extends AbstractEntity {
 
     private String text;

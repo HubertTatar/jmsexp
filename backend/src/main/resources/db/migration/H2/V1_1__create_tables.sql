@@ -14,5 +14,18 @@ create table orders.order_comments (
         modification_date timestamp,
         version integer,
         text varchar(255),
-        order_id decimal(19,0),
+        order_id decimal(19,0)
+    );
+
+ create table orders.bugs (
+       id decimal(19,0) not null,
+        created_date timestamp,
+        modification_date timestamp,
+        version integer,
+        created_by varchar(255),
+        description varchar(255),
+        severity smallint,
+        status smallint,
+        title varchar(255),
+        updated_by varchar(255)
     );

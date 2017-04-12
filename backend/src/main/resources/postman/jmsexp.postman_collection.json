@@ -1,0 +1,22 @@
+{
+	"variables": [],
+	"info": {
+		"name": "jmsexp",
+		"_postman_id": "b9cc4cee-33c0-f84b-036d-1221f0b73598",
+		"description": "Expermients\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/bugs/list",
+			"request": {
+				"url": "http://localhost:8080/bugs/list",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

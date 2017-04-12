@@ -11,7 +11,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="orders", schema = "orders", indexes = { @Index(name="orders_idx_1", columnList = "productName" ) } )
+@Table(name="orders", schema = "orders", indexes = {
+        @Index(columnList = "id, version", unique = true, name="orders_idx_1"),
+        @Index(name="orders_idx_2", columnList = "productName" )
+})
 @Getter
 public class Order extends AbstractEntity {
 

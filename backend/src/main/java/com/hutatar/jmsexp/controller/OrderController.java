@@ -16,17 +16,21 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/create")
-    public void createOrder(@RequestBody OrderDto orderDto) {
+    public void post(@RequestBody OrderDto orderDto) {
         orderService.sendOrder(orderDto);
     }
 
     @GetMapping("/{id}")
-    public OrderDto getOrder(@PathVariable BigInteger id) {
+    public OrderDto get(@PathVariable BigInteger id) {
         return orderService.findOrder(id);
     }
 
     @GetMapping("/list")
-    public List<OrderDto> listOrders() {
+    public List<OrderDto> getAll() {
         return orderService.getAllOrders();
+    }
+
+    @PutMapping("/{id}")
+    public void put(@RequestBody OrderDto orderDto) {
     }
 }

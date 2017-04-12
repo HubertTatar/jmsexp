@@ -16,6 +16,7 @@ ng serve
     * [bootsrap4 alpha6](https://v4-alpha.getbootstrap.com/components)
     * [fontawsome icons](http://fontawesome.io/icons/)
 * Materials:
+    * [angular promises vs observables](https://egghead.io/lessons/rxjs-rxjs-observables-vs-promises)
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
     * [websystique jms tutorial](http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/)
     * [angular2 and spring boot](https://blog.jdriven.com/2016/12/angular2-spring-boot-getting-started/)

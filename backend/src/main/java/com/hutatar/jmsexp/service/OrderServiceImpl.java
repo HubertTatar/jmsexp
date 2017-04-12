@@ -89,7 +89,6 @@ public class OrderServiceImpl implements OrderService {
     private Order dtoToDomain(OrderDto orderDto, Order order) {
         return Order.builder()
                 .id(order.getId())
-                .version(order.getVersion())
                 .createdDate(order.getCreatedDate())
                 .modificationDate(order.getModificationDate())
                 .productName(orderDto.getProductName())
