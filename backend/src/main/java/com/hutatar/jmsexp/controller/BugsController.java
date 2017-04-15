@@ -26,8 +26,8 @@ public class BugsController {
     }
 
     @PostMapping
-    public void post(@RequestBody BugDto bugDto) {
-        bugService.create(bugDto);
+    public BugDto post(@RequestBody BugDto bugDto) {
+        return bugService.create(bugDto);
     }
 
     @PutMapping

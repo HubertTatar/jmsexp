@@ -1,13 +1,14 @@
-import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable }     from "rxjs";
+import { Injectable }                   from '@angular/core';
+import {Http, RequestOptions, Response} from '@angular/http';
+import { Observable }                   from "rxjs";
 
-import { Bug }            from '../model/bug';
+import { Bug }                          from '../model/bug';
 
 @Injectable()
 export class BugService {
 
   private bugsUrl = '/api/bugs/list';
+  private bugsCreate = '/api/bugs';
 
   constructor(private http: Http) {}
 
@@ -16,6 +17,13 @@ export class BugService {
         .get(this.bugsUrl)
         .map((res) => this.extractData(res))
         .catch((err) => this.handleError(err));
+  }
+
+  addBug(bug: Bug) {
+    console.log(bug);
+    return this.http.post(this.bugsCreate, bug)
+      .map((res) => this.extractData(res))
+      .catch((err) => this.handleError(err));
   }
 
   private extractData(res: Response) {

@@ -10,6 +10,6 @@ public interface BugService {
     List<BugDto> list();
     BugDto find(BigInteger id);
     void update(BugDto bugDto);
-    void create(BugDto bugDto);
+    BugDto create(BugDto bugDto);
 
 }

@@ -16,6 +16,10 @@ public class BugDto extends AbstractDto {
     private Short status;
     private String updatedBy;
 
+    public BugDto(){
+        super();
+    }
+
     @Builder
     public BugDto(BigInteger id, LocalDateTime createdDate, LocalDateTime modificationDate, String title, String createdBy, String description, Short severity, Short status, String updatedBy) {
         super(id, createdDate, modificationDate);

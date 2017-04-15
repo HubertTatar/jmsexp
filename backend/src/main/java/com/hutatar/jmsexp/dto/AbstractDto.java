@@ -16,6 +16,8 @@ public abstract class AbstractDto {
     private Long createdDate;
     private Long modificationDate;
 
+    public AbstractDto() {}
+
     public AbstractDto(BigInteger id, LocalDateTime createdDate, LocalDateTime modificationDate) {
         this.id = id;
         this.createdDate = createdDate.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
