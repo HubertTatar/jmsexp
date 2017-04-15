@@ -1,26 +1,27 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
-import {Observable}       from "rxjs";
+import { Observable }     from "rxjs";
+
+import { Bug }            from '../model/bug';
 
 @Injectable()
 export class BugService {
 
-  private bugsUrl = 'api/bugs';
+  private bugsUrl = '/api/bugs/list';
 
   constructor(private http: Http) {}
 
-  getAddedBugs(): Observable<any> {
-    return Observable.create( obs => {
-      this.http
+  getAddedBugs(): Observable<Bug[]> {
+    return this.http
         .get(this.bugsUrl)
-        .map(this.extractData)
-        .catch(this.handleError)
-    });
+        .map((res) => this.extractData(res))
+        .catch((err) => this.handleError(err));
   }
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    console.log(body);
+    return body as Bug;
   }
 
   private handleError (error: Response | any) {

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,7 +43,8 @@ public class BugServiceImpl implements BugService {
                 .id(dto.getId())
                 .createdBy(dto.getCreatedBy())
                 .description(dto.getDescription())
-                .modificationDate(dto.getModificationDate())
+                .createdDate(Instant.ofEpochMilli(dto.getCreatedDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
+                .modificationDate(Instant.ofEpochMilli(dto.getModificationDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
                 .severity(dto.getSeverity())
                 .status(dto.getStatus())
                 .title(dto.getTitle())

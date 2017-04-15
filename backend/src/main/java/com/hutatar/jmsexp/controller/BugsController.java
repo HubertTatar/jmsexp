@@ -35,3 +35,16 @@ public class BugsController {
         bugService.update(bugDto);
     }
 }
+/*
+  {
+    "id": 1,
+    "createdDate": "15/04/2017 02:30",
+    "modificationDate": "15/04/2017 02:30",
+    "title": "test",
+    "createdBy": "test",
+    "description": "test",
+    "severity": 1,
+    "status": 1,
+    "updatedBy": null
+  }
+ */

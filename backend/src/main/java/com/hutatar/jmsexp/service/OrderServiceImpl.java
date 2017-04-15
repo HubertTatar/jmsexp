@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.math.BigInteger;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -100,8 +103,8 @@ public class OrderServiceImpl implements OrderService {
     private Order dtoToDomain(OrderDto orderDto) {
         return Order.builder()
                 .id(orderDto.getId())
-                .createdDate(orderDto.getCreatedDate())
-                .modificationDate(orderDto.getModificationDate())
+                .createdDate(Instant.ofEpochMilli(orderDto.getCreatedDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
+                .modificationDate(Instant.ofEpochMilli(orderDto.getModificationDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
                 .productName(orderDto.getProductName())
                 .quantity(orderDto.getQuantity())
                 .status(orderDto.getStatus())

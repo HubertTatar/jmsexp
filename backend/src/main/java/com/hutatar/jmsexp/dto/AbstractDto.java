@@ -7,21 +7,18 @@ import lombok.Getter;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Getter
 public abstract class AbstractDto {
     //fields from abstract
     private BigInteger id;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(pattern="dd/MM/yyyy hh:mm")
-    private LocalDateTime createdDate;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(pattern="dd/MM/yyyy hh:mm")
-    private LocalDateTime modificationDate;
+    private Long createdDate;
+    private Long modificationDate;
 
     public AbstractDto(BigInteger id, LocalDateTime createdDate, LocalDateTime modificationDate) {
         this.id = id;
-        this.createdDate = createdDate;
-        this.modificationDate = modificationDate;
+        this.createdDate = createdDate.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        this.modificationDate = modificationDate.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 }

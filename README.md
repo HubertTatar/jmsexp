@@ -20,6 +20,7 @@ ng serve
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
     * [websystique jms tutorial](http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/)
     * [angular2 and spring boot](https://blog.jdriven.com/2016/12/angular2-spring-boot-getting-started/)
+    * [scheduler](https://code.daypilot.org/61900/angular-2-scheduler-ui-with-spring-boot-backend-java)
     * [cqrs materials](https://github.com/versionone/Learning-CQRS)
     * [introduciotn to CQRS](https://www.codeproject.com/Articles/555855/Introduction-to-CQRS)
     * [cqrs simple](https://www.future-processing.pl/blog/cqrs-simple-architecture/)

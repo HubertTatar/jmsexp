@@ -59,5 +59,3 @@ logging:
   file: ./target/jmsexp.log
   level: debug
 
-
-
