@@ -81,6 +81,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderDto domainToDto(Order o) {
         return OrderDto.builder()
                 .id(o.getId())
+                .version(o.getVersion())
                 .createdDate(o.getCreatedDate())
                 .modificationDate(o.getModificationDate())
                 .productName(o.getProductName())
@@ -92,8 +93,9 @@ public class OrderServiceImpl implements OrderService {
     private Order dtoToDomain(OrderDto orderDto, Order order) {
         return Order.builder()
                 .id(order.getId())
-                .createdDate(order.getCreatedDate())
-                .modificationDate(order.getModificationDate())
+                .version(order.getVersion())
+//                .createdDate(order.getCreatedDate())
+//                .modificationDate(order.getModificationDate())
                 .productName(orderDto.getProductName())
                 .quantity(orderDto.getQuantity())
                 .status(orderDto.getStatus())
@@ -103,8 +105,8 @@ public class OrderServiceImpl implements OrderService {
     private Order dtoToDomain(OrderDto orderDto) {
         return Order.builder()
                 .id(orderDto.getId())
-                .createdDate(Instant.ofEpochMilli(orderDto.getCreatedDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
-                .modificationDate(Instant.ofEpochMilli(orderDto.getModificationDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
+//                .createdDate(Instant.ofEpochMilli(orderDto.getCreatedDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
+//                .modificationDate(Instant.ofEpochMilli(orderDto.getModificationDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
                 .productName(orderDto.getProductName())
                 .quantity(orderDto.getQuantity())
                 .status(orderDto.getStatus())

@@ -26,6 +26,14 @@ export class BugService {
       .catch((err) => this.handleError(err));
   }
 
+  updateBug(bug: Bug) {
+    bug.updatedBy = "todo";
+    bug.modificationDate = Date.now();
+    return this.http.put(this.bugsCreate, bug)
+      .map((res) => this.extractData(res))
+      .catch((err) => this.handleError(err));
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     console.log(body);

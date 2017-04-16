@@ -30,7 +30,8 @@ public class BugServiceImpl implements BugService {
 
     @Override
     public void update(BugDto bugDto) {
-        bugRepository.save(dtoToDomain(bugDto));
+        Bug bug = dtoToDomain(bugDto);
+        bugRepository.save(bug);
     }
 
     @Override
@@ -42,6 +43,7 @@ public class BugServiceImpl implements BugService {
     private Bug dtoToDomain(BugDto dto) {
         return Bug.builder()
                 .id(dto.getId())
+                .version(dto.getVersion())
                 .createdBy(dto.getCreatedBy())
                 .description(dto.getDescription())
 //                .createdDate(Instant.ofEpochMilli(dto.getCreatedDate()).atZone(ZoneId.systemDefault()).toLocalDateTime())
@@ -59,6 +61,7 @@ public class BugServiceImpl implements BugService {
     private BugDto domainToDto(Bug b) {
         return BugDto.builder()
                 .id(b.getId())
+                .version(b.getVersion())
                 .modificationDate(b.getModificationDate())
                 .createdDate(b.getCreatedDate())
                 .createdBy(b.getCreatedBy())

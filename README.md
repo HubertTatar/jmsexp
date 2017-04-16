@@ -16,6 +16,10 @@ ng serve
     * [bootsrap4 alpha6](https://v4-alpha.getbootstrap.com/components)
     * [fontawsome icons](http://fontawesome.io/icons/)
 * Materials:
+    * [microservices patterns](http://microservices.io/patterns/data/event-driven-architecture.html)
+    * [eventuate events](http://eventuate.io/)
+    * [eventuate-examples](https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders)
+    * [event-driven-data-management](https://www.nginx.com/blog/event-driven-data-management-microservices/)
     * [angular promises vs observables](https://egghead.io/lessons/rxjs-rxjs-observables-vs-promises)
     * [example on github](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-flyway/src/main/resources/db/migration/V1__init.sql)
     * [websystique jms tutorial](http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/)

@@ -31,6 +31,18 @@ export class BugDetailComponent implements OnInit{
     });*/
     if (bug) {
       this.currnetBug = bug;
+      this.currnetBug = new Bug(
+        bug.id,
+        bug.version,
+        bug.title,
+        bug.status,
+        bug.severity,
+        bug.description,
+        bug.createdBy,
+        bug.createdDate,
+        bug.modificationDate,
+        bug.updatedBy,
+      );
     }
     this.bugForm = this.formB.group({
       title: [this.currnetBug.title , [Validators.required, forbiddenStringValidator(/doggy/i)]],
@@ -41,15 +53,19 @@ export class BugDetailComponent implements OnInit{
   }
 
   submitForm() {
-    console.log(this.bugForm);
-    this.addBug();
-  }
-
-  addBug() {
     this.currnetBug.title = this.bugForm.value["title"];
     this.currnetBug.status = this.bugForm.value["status"];
     this.currnetBug.severity = this.bugForm.value["severity"];
     this.currnetBug.description = this.bugForm.value["description"];
+
+    if (this.currnetBug.id) {
+      this.updateBug();
+    } else {
+      this.addBug();
+    }
+  }
+
+  addBug() {
     this.bugService.addBug(this.currnetBug)
       .subscribe(bug => {
         console.log(bug);
@@ -70,5 +86,17 @@ export class BugDetailComponent implements OnInit{
 
   cleanBug() {
     this.currnetBug = new Bug(null, null, null, 1, 1, null, null, null, null, null);
+  }
+
+  updateBug() {
+    this.bugService.updateBug(this.currnetBug)
+      .subscribe(bug => {
+          console.log(bug);
+          this.clearForm();
+        },
+        err => {
+          console.log("unable to get added bug", err);
+        });
+    this.clearForm();
   }
 }

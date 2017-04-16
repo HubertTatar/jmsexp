@@ -16,8 +16,8 @@ public class OrderDto extends AbstractDto {
     private OrderStatus status;
 
     @Builder
-    public OrderDto(BigInteger id, LocalDateTime createdDate, LocalDateTime modificationDate, String productName, int quantity, OrderStatus status) {
-        super(id, createdDate, modificationDate);
+    public OrderDto(BigInteger id, Integer version, LocalDateTime createdDate, LocalDateTime modificationDate, String productName, int quantity, OrderStatus status) {
+        super(id, version, createdDate, modificationDate);
         this.productName = productName;
         this.quantity = quantity;
         this.status = status;

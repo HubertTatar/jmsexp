@@ -21,8 +21,8 @@ public class BugDto extends AbstractDto {
     }
 
     @Builder
-    public BugDto(BigInteger id, LocalDateTime createdDate, LocalDateTime modificationDate, String title, String createdBy, String description, Short severity, Short status, String updatedBy) {
-        super(id, createdDate, modificationDate);
+    public BugDto(BigInteger id, Integer version, LocalDateTime createdDate, LocalDateTime modificationDate, String title, String createdBy, String description, Short severity, Short status, String updatedBy) {
+        super(id, version, createdDate, modificationDate);
         this.title = title;
         this.createdBy = createdBy;
         this.description = description;
