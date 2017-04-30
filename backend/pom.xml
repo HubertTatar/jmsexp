@@ -93,6 +93,22 @@
 			<artifactId>javaslang</artifactId>
 			<version>2.1.0-alpha</version>
 		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.0.2</version>
+            <exclusions>
+                <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+			<groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.7.22</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -102,7 +118,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+    </build>
 
 	<repositories>
 		<repository>

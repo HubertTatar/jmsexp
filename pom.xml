@@ -22,7 +22,28 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<unit-tests.skip>false</unit-tests.skip>
+		<integration-tests.skip>true</integration-tests.skip>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>acceptance-tests</id>
+			<properties>
+				<testSource>src/acceptance-test/java</testSource>
+				<testSourceResource>src/acceptance-test/resources</testSourceResource>
+			</properties>
+		</profile>
+		<profile>
+			<id>integration-tests</id>
+			<properties>
+				<testSource>src/integration-test/java</testSource>
+				<testSourceResource>src/integration-test/resources</testSourceResource>
+				<unit-tests.skip>false</unit-tests.skip>
+				<integration-tests.skip>false</integration-tests.skip>
+			</properties>
+		</profile>
+	</profiles>
 	
 	<modules>
 		<module>frontend</module>
