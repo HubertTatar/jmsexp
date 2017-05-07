@@ -33,3 +33,4 @@ ng serve
     * [pillo cqrs](https://github.com/pilloPl)
     * [balesdung spring-event-sourcing-and-cqrs](https://github.com/Baeldung/spring-event-sourcing-and-cqrs)
     * [baledung  cqrs-for-a-spring-rest-api](http://www.baeldung.com/cqrs-for-a-spring-rest-api)
+	* [angular-2-spring-boot-jwt-cors_part2](http://chariotsolutions.com/blog/post/angular-2-spring-boot-jwt-cors_part2/)
